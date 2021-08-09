@@ -9,11 +9,12 @@ class Category(models.Model):
         return self.name
 
 class Post(models.Model):
-    title = models.CharField(max_length=48)
-    price = models.IntegerField()
-    description = models.TextField()
-    date_posted = models.DateTimeField(default=timezone.now)
-    category = ForeignKey(Category, related_name="posts", on_delete=models.CASCADE)
+    title = models.CharField(max_length=48, null=True)
+    price = models.IntegerField(null=True)
+    description = models.TextField(null=True, blank=True)
+    date_posted = models.DateTimeField(default=timezone.now, null=True)
+    category = models.ForeignKey(Category, null=True, on_delete=models.SET_NULL)
+    # category = models.ForeignKey(Category, related_name="posts", on_delete=models.CASCADE)
 
 
 
