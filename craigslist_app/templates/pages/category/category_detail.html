@@ -1,7 +1,15 @@
 <div>
   <h1>Category Detail Page</h1>
   <h2>{{ category.name }}</h2>
+  <a href="{% url 'edit_category' category_id=category.id %}">Edit Category</a>
+  <br />
+  <form name='delete_category' method='POST' action="{% url 'delete_category' category_id=category.id %}">
+    {% csrf_token %}
+    <input type='submit' value='Delete Category'/>
+  </form>
   <hr>
-  <h2>Posts goes here</h2>
+  <h2>Posts goes here</h2>  
+  <br />
+  <a href="{% url 'category_list' %}">Back</a>
 
 </div>
