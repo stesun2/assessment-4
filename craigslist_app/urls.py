@@ -15,10 +15,11 @@ urlpatterns = [
 
 
     # Post Url
-    # path('categories/<int:category_id>/posts/new/', views.post_create, name='post-create'),
-    # path('categories/<int:category_id>/posts/<int:post_id>/', views.post_view, name='post-view'),
-    # path('categories/<int:category_id>/posts/<int:post_id>/edit/', views.post_edit, name='post-edit'),
-    # path('categories/<int:category_id>/posts/<int:post_id>/delete/', views.post_delete, name='post-delete'),
+    path('categories/<int:category_id>/posts', views.post_list, name='post_list'),
+    path('categories/<int:category_id>/posts/new/', views.new_post, name='new_post'),
+    path('categories/<int:category_id>/posts/<int:post_id>/', views.post_detail, name='post_detail'),
+    path('categories/<int:category_id>/posts/<int:post_id>/edit/', views.edit_post, name='edit_post'),
+    path('categories/<int:category_id>/posts/<int:post_id>/delete/', views.delete_post, name='delete_post'),
 
     
 ]

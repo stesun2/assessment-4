@@ -8,8 +8,13 @@
     <input type='submit' value='Delete Category'/>
   </form>
   <hr>
-  <h2>Posts goes here</h2>  
-  <br />
-  <a href="{% url 'category_list' %}">Back</a>
+  <h2>Posts</h2> 
+  <div>
+    <a href="{% url 'post_list' category_id=category.id %}"> <h2>{{category.name}} Listings</h2> </a>
+  </div> 
+  <br/>
+  <div>
+    <a href="{% url 'category_list' %}">Back</a>
+  </div>
 
 </div>
