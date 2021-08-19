@@ -1,13 +1,16 @@
+{% extends 'pages/base.html' %}
+{% block content %}
+
 <h1>All Posts for {{ category.name }} </h1>
 <ul>
   {% for post in posts %}
   <div>
-   <li><a href="{% url 'post_detail' category_id=category.id post_id=post.id %}">  
-     {{ post.title }}
-   </a>
-   </li> 
-  </div>
-  {% endfor %}
+    <li><a href="{% url 'post_detail' category_id=category.id post_id=post.id %}">  
+      {{post.date_posted}} {{ post.title }} 
+    </a>
+  </li> 
+</div>
+{% endfor %}
 </ul>
 <div>
   <h2>
@@ -17,6 +20,7 @@
 
 <div>
   <h2>
-    <a href="{% url 'category_detail' category_id=category.id %}">Back to {{category.name}}</a> 
+    <a href="{% url 'category_detail' category_id=category.id %}">Back to category</a> 
   </h2>
 </div>
+{% endblock%}

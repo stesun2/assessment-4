@@ -1,21 +1,33 @@
+{% extends 'pages/base.html' %}
+{% block content %}
 <div>
-  <h1>Post Detail Page for {{post.category}}</h1>
+  <h1>Detail Page for {{post.category}}</h1>
   <h2>
     {{post.title}}
     ${{post.price}}
-    {{post.date_posted}}
+
+    Date: {{post.date_posted}}
     <br/>
   </h2>
   <br/>
+  <h2>Description</h2>
   <p>{{post.description}}</p>
 </div>
+
+<h2>
+  <a href="{% url 'category_detail' category_id=category.id %}">Back to category</a> 
+</h2>
+
 <div>
   <h2>
     <a href="{% url 'edit_post' category_id=category.id post_id=post.id %}">Edit Post</a>
   </h2>
 </div>
 
+
+
 <form name='delete_post' method='POST' action="{% url 'delete_post' category_id=category.id post_id=post.id %}">
   {% csrf_token %}
   <input type='submit' value='Delete Post'/>
 </form>
+{% endblock%}

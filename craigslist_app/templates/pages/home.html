@@ -1,9 +1,8 @@
-{% block main-content %}
-<h1>Craigslist  Jr</h1>
-<ul>
-  
-  <a href="{% url 'category_list' %}"><h2>Category List</h2></a>
-  
-</ul>
+{% extends 'pages/base.html' %}
+{% block content %}
+<h1>craigslist jr</h1>
+<hr>
+  <a href="{% url 'category_list' %}"><h2>Category List</h2></a>  
+
 {% endblock %}
 

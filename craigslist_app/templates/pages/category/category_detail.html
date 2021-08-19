@@ -1,6 +1,8 @@
+{% extends 'pages/base.html' %}
+
+{% block content %}
 <div>
-  <h1>Category Detail Page</h1>
-  <h2>{{ category.name }}</h2>
+  <h1>{{ category.name }}</h1>
   <a href="{% url 'edit_category' category_id=category.id %}">Edit Category</a>
   <br />
   <form name='delete_category' method='POST' action="{% url 'delete_category' category_id=category.id %}">
@@ -8,13 +10,16 @@
     <input type='submit' value='Delete Category'/>
   </form>
   <hr>
-  <h2>Posts</h2> 
   <div>
     <a href="{% url 'post_list' category_id=category.id %}"> <h2>{{category.name}} Listings</h2> </a>
   </div> 
   <br/>
   <div>
-    <a href="{% url 'category_list' %}">Back</a>
-  </div>
+    <h2>
+      <a href="{% url 'category_list' %}">Back</a>
 
+    </h2>
+  </div>
 </div>
+
+{% endblock%}
