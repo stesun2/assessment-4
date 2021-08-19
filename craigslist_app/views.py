@@ -1,15 +1,28 @@
 from django.shortcuts import render
 from craigslist_app.models import Category, Post
 from .models import *
+# from django.views.generic import ListView, DetailView
+
+# class HomeView(ListView):
+#     model = Post
+#     template_name = 'pages/home.html'
+
+# class CategoryDetailView(DetailView):
+#     model = Post
+#     template_name = 'pages/category/category_detail.html'
 
 # craigslist_app/templates/pages/base.html
 def home(request):
     return render(request, 'pages/home.html')
  
-def categories(request): 
+def category_list(request): 
     categories = Category.objects.all()
-    return render(request, 'pages/home.html', {'categories': categories})
-    # return render(request, 'pages/category/category_detail.html')
+    return render(request, 'pages/category/category_list.html', {'categories': categories})
+
+def category_detail(request, category_id): 
+    category = Category.objects.get(id=category_id)
+    return render(request, 'pages/category/category_detail.html', {'category': category})
+
 
 # def index(request):
 #     info = {

@@ -1,10 +1,19 @@
 from django.urls import path, include
-from craigslist_app import views 
+# from craigslist_app import views 
+from . import views
+# from .views import HomeView, CategoryDetailView
+
 urlpatterns = [
+    # path('', HomeView.as_view(), name='app-home'),
+    # path('categories/<int:pk>', CategoryDetailView.as_view(), name='app-categories'),
+    
+
+
+
     path('', views.home, name='app-home'),
-    path('categories/', views.categories, name='app-categories'),
-    # path('categories/new/', views.category_create, name='app-new'),
-    # path('categories/<int:category_id>/', views.category_view, name='category-view'),
+    path('categories/', views.category_list, name='category_list'),
+    # path('categories/new/', views.category_create, name='app-new'),   
+    path('categories/<int:category_id>/', views.category_detail, name='category_detail'),
     # path('categories/<int:category_id>/edit/', views.category_edit, name='category-edit'),
     # path('categories/<int:category_id>/delete/', views.category_delete, name='category-delete'),
     # path('categories/<int:category_id>/posts/new/', views.post_create, name='post-create'),

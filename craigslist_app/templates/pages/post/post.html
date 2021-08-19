@@ -1,0 +1,13 @@
+<h1>Post</h1>
+    
+<ul>
+  {% for post in object_list %}
+    <li>
+      {{post.title}} <br/>
+      {{post.price}}
+      {{post.description}}
+      {{post.date_posted}}
+      {{post.category}}
+    </li>
+    {% endfor %}
+ </ul>

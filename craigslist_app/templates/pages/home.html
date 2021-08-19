@@ -1,7 +1,9 @@
-{% extends "pages/base.html" %}
-{% block content %}
-  <h1>Craigslist Jr</h1>
-    {% for c in categories %}
-      {{c.name}} 
-    {% endfor %}
-{% endblock content %}
+{% block main-content %}
+<h1>Craigslist  Jr</h1>
+<ul>
+  
+  <a href="{% url 'category_list' %}"><h2>Category List</h2></a>
+  
+</ul>
+{% endblock %}
+
